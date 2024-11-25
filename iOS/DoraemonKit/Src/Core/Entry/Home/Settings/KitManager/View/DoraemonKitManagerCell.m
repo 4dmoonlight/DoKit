@@ -25,19 +25,19 @@
     if (self) {
 #if defined(__IPHONE_13_0) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_0)
         if (@available(iOS 13.0, *)) {
-            self.backgroundColor = [UIColor systemBackgroundColor];
+            self.contentView.backgroundColor = [UIColor systemBackgroundColor];
         } else {
 #endif
-            self.backgroundColor = [UIColor whiteColor];
+            self.contentView.backgroundColor = [UIColor whiteColor];
 #if defined(__IPHONE_13_0) && (__IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_0)
         }
 #endif
-        self.layer.borderWidth = kDoraemonSizeFrom750_Landscape(1);
-        self.layer.borderColor = [UIColor doraemon_colorWithHexString:@"#EEEEEE"].CGColor;
+        self.contentView.layer.borderWidth = kDoraemonSizeFrom750_Landscape(1);
+        self.contentView.layer.borderColor = [UIColor doraemon_colorWithHexString:@"#EEEEEE"].CGColor;
         
-        [self addSubview:self.centerView];
-        [self addSubview:self.maskView];
-        [self addSubview:self.select];
+        [self.contentView addSubview:self.centerView];
+        [self.contentView addSubview:self.maskView];
+        [self.contentView addSubview:self.select];
         
         [self.centerView addSubview:self.icon];
         [self.centerView addSubview:self.name];
